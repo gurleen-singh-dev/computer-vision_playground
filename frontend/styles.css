@@ -1,0 +1,81 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color:rgb(214, 186, 151);
+}
+
+.page {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.title {
+  color: #0b0b0b;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+input[type="file"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 100px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button {
+  width: 50%;
+  padding: 14px;
+  margin-top: 30px;
+  background: linear-gradient(135deg, #5b443b 0%, #a24b4b 100%);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+.result {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 40px;
+}
+img {
+  display: block;
+  margin-top: 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+}
