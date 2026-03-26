@@ -1,19 +1,20 @@
-import cv2 as cv
-import sys
+import cv2
 
 
-def detect_edges(image_path, low_threshold=100, high_threshold=200):
-    image = cv.imread(image_path, cv.IMREAD_GRAYSCALE)
+def edges(path, low_threshold=100, high_threshold=200):
+    image = cv2.imread(path)
     if image is None:
-        raise FileNotFoundError(f"Could not load image: {image_path}")
+        raise FileNotFoundError(f"Could not load image: {path}")
 
-    edges = cv.Canny(image, low_threshold, high_threshold)
+    edges = cv2.Canny(image, low_threshold, high_threshold)
+    output_path = path.replace(".", "_edge_image.")
+    cv2.imwrite(output_path, edges)
 
-    cv.imshow("Original (grayscale)", image)
-    cv.imshow("Edges", edges)
-    cv.waitKey(0)
-    cv.destroyAllWindows()
+    # cv.imshow("Original", image)
+    # cv.imshow("Edges", edges)
+    # cv.waitKey(0)
+    # cv.destroyAllWindows()
+    return output_path
 
-if __name__ == "__main__":
-    image_path = r'backend\uploads\arch.png'  # or 'uploads/arch.png'
-    detect_edges(image_path)
+
+# print(edges(r'uploads\castle.png'))
