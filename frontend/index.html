@@ -2,35 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Computer Vision Playground</title>
     <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}" />
   </head>
 
   <body>
     <h1 class="title">Computer Vision Playground</h1>
-    <div class="page">
-      <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="file">Select Image:</label>
-        <input type="file" id="file" name="file" required />
-        <label for="model">Select CV Model:</label>
-        <select name="operation" id="model">
-          <option value="edge">Edge Detection</option>
-          <option value="gaussian">Gaussian Blur</option>
-          <option value="grayscale">Grayscale</option>
-        </select>
-
-        <br /><br />
-        <button type="submit">Upload</button>
-      </form>
-      <br />
-    </div>
-    <div class="result">
-      {% if output_image %}
-      <div class="result">
-        <img src="/uploads/{{ output_image.split('/')[-1] }}" width="300" />
+    <div class="main">
+      <div class="container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <label for="file">Select Image:</label>
+          <input type="file" id="file" name="file" required />
+          <label for="model">Select CV Model:</label>
+          <select name="operation" id="model">
+            <option value="edge">Edge Detection</option>
+            <option value="gaussian">Gaussian Blur</option>
+            <option value="grayscale">Grayscale</option>
+          </select>
+          <button type="submit">Upload</button>
+        </form>
+        <br />
       </div>
-      {% endif %}
+
+      <div class="result">
+        {% if output_image %}
+          <img src="/uploads/{{ output_image.split('/')[-1] }}" width="300" />
+        {% endif %}
+      </div>
     </div>
   </body>
 </html>
