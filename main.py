@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Request, Form
+from fastapi import FastAPI, UploadFile, File, Request, Form, HTTPException
 import shutil
 from pathlib import Path
 from fastapi.responses import FileResponse, HTMLResponse
@@ -34,6 +34,9 @@ async def upload_image(request: Request,
                        operation: str = Form(...)):
     file_path = f"{UPLOAD_FOLDER}/{file.filename}"
 
+
+    if file is None or file.filename == "":
+        raise HTTPException(status_code=400, detail="No file selected")
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
