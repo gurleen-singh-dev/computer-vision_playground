@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Request, Form
 import shutil
-from pydantic import BaseModel
 from pathlib import Path
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -23,7 +22,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "output_image": None
+    })
 
 
 @app.post("/upload", response_class=HTMLResponse)
@@ -48,23 +50,3 @@ async def upload_image(request: Request,
         "request": request,
         "output_image": output_path
     })
-
-
-# @app.post("/upload-image")
-# def upload_image(file: UploadFile = File(...)):
-
-#     file_location = f"backend/uploads/{file.filename}"
-
-#     with open(file_location, "wb") as buffer:
-#         shutil.copyfileobj(file.file, buffer)
-
-#     return {
-#         "message": "Image uploaded successfully",
-#         "filename": file.filename
-#     }
-# @app.get("/get_image")
-# def get_image():
-#     image_path = Path("backend/uploads/arch.png")
-#     if not image_path.is_file():
-#         return("error: no file found")
-#     return FileResponse(image_path)
