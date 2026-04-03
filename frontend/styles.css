@@ -103,3 +103,22 @@ button:hover {
   background: #4a5af0;
   transform: scale(1.03);
 }
+
+.placeholder {
+  text-align: center;
+  color: #94a3b8;
+}
+
+.placeholder p {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.placeholder span {
+  font-size: 14px;
+}
+.icon {
+  font-size: 180px;
+  margin-bottom: 10px;
+}

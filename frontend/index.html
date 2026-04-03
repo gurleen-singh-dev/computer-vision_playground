@@ -27,7 +27,14 @@
 
       <div class="result">
         {% if output_image %}
-          <img src="/uploads/{{ output_image.split('/')[-1] }}" width="300" />
+        <img src="/uploads/{{ output_image.split('/')[-1] }}" width="300" />
+        {% else %}
+        <div class="placeholder">
+          <div class="icon">🖼️</div>
+ 
+          <p>No image uploaded</p>
+          <span>Upload an image to see results</span>
+        </div>
         {% endif %}
       </div>
     </div>
