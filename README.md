@@ -34,6 +34,7 @@ Users can upload images and apply transformations.
   - OpenCV
   - shutil
   - os
+
 _refer requirements.txt for more_
 
 ---
