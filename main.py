@@ -1,9 +1,8 @@
 from fastapi import FastAPI, UploadFile, File, Request, Form, HTTPException
-import shutil
-from pathlib import Path
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+import shutil
 import os
 from backend.edge import edges
 from backend.gaussian import gaussian
@@ -33,7 +32,6 @@ async def upload_image(request: Request,
                        file: UploadFile = File(...),
                        operation: str = Form(...)):
     file_path = f"{UPLOAD_FOLDER}/{file.filename}"
-
 
     if file is None or file.filename == "":
         raise HTTPException(status_code=400, detail="No file selected")
