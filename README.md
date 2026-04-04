@@ -103,7 +103,7 @@ computer-vision-playground/
 ## Download & Setup
 
 ```bash
-git clone https://github.com/your-username/computer-vision-playground.git
+git clone https://github.com/gurleen-singh-dev/computer-vision_playground.git
 cd computer-vision-playground
 
 python -m venv venv
