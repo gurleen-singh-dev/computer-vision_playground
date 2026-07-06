@@ -143,5 +143,4 @@ http://127.0.0.1:8000
 
 - Add more filters (thresholding, morphology, sharpening)
 - Real-time webcam processing
-- Drag-and-drop UI
 - Model-based features (face detection, object detection)
