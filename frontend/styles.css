@@ -135,12 +135,24 @@ button:hover {
     border-color: #00ffcc;
     background: #111;
 }
-.drop-zone p {
-    margin: 0;
-    color: #aaa;
+.drop-zone {
+    border: 2px dashed #888;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 260px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    cursor: pointer;
+    transition: 0.3s;
 }
 #preview {
-    margin-top: 15px;
-    max-width: 300px;
     display: none;
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
 }
